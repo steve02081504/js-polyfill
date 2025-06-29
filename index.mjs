@@ -1,3 +1,3 @@
-await import('http://esm.run/core-js')
+await import('http://esm.run/core-js').catch(_ => 0)
 
-if (globalThis.document) await import('./browser.mjs')
+if (globalThis.document) await import('./browser.mjs').catch(_ => 0)

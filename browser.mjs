@@ -1,9 +1,9 @@
 if (!('anchorName' in document.documentElement.style))
-	import('https://esm.run/@oddbird/css-anchor-positioning')
+	import('https://esm.run/@oddbird/css-anchor-positioning').catch(_ => 0)
 
 if (!('popover' in HTMLElement.prototype))
-	await import('https://esm.run/@oddbird/popover-polyfill')
+	await import('https://esm.run/@oddbird/popover-polyfill').catch(_ => 0)
 
 const scripts = Array.from(document.querySelectorAll('script'))
 if (scripts.some(script => script.src?.includes?.('@tailwindcss/browser')))
-	import('./scripts/tailwindcssCdnFixer.mjs').then(({ fixTailwindcssCDN }) => fixTailwindcssCDN())
+	import('./scripts/tailwindcssCdnFixer.mjs').then(({ fixTailwindcssCDN }) => fixTailwindcssCDN(), _ => 0)
