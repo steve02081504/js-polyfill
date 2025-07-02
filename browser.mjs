@@ -4,6 +4,9 @@ if (!('anchorName' in document.documentElement.style))
 if (!('popover' in HTMLElement.prototype))
 	await import('https://esm.run/@oddbird/popover-polyfill').catch(_ => 0)
 
+if (!navigator?.plugins?.['Shockwave Flash'])
+	await import('https://esm.run/@ruffle-rs/ruffle').catch(_ => 0)
+
 const scripts = Array.from(document.querySelectorAll('script'))
 if (scripts.some(script => script.src?.includes?.('@tailwindcss/browser')))
 	import('./scripts/tailwindcssCdnFixer.mjs').then(({ fixTailwindcssCDN }) => fixTailwindcssCDN(), _ => 0)
