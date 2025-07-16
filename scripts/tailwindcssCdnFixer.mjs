@@ -151,6 +151,14 @@ const classConfigs = [
 			{ prefix: 'aspect-w-', property: '--tw-aspect-w' },
 			{ prefix: 'aspect-h-', property: '--tw-aspect-h' },
 		]
+	},
+	// 像素单位
+	{
+		type: 'pixel_unit', configs: [
+			{ prefix: 'stroke-', property: 'stroke-width' },
+			{ prefix: 'outline-', property: 'outline-width' },
+			{ prefix: 'outline-offset-', property: 'outline-offset' },
+		]
 	}
 ]
 
@@ -217,6 +225,10 @@ function generateRule(config, rawValue, type, metadata = {}) {
 			value = rawValue
 			cssDeclarations = `${config.property}: ${value};`
 			break
+		case 'pixel_unit':
+			value = typeof rawValue === 'number' ? `${rawValue}px` : rawValue
+			cssDeclarations = properties.map(p => `${p}: ${value};`).join(' ')
+			break
 		default:
 			return ''
 	}
@@ -245,7 +257,7 @@ function generateTailwindNumericCSS() {
 			// 生成方括号任意值规则
 			for (const arbitraryValue of arbitraryValues)
 				// 仅为有意义的类型生成任意值
-				if (['spacing', 'percentage', 'time', 'transform', 'filter', 'special_spacing', 'special_divide', 'variable_setter'].includes(type))
+				if (['spacing', 'percentage', 'time', 'transform', 'filter', 'special_spacing', 'special_divide', 'variable_setter', 'pixel_unit'].includes(type))
 					cssRules.push(generateRule(config, arbitraryValue, type, metadata))
 
 
