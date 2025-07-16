@@ -113,6 +113,11 @@ const classConfigs = [
 	{
 		type: 'percentage', configs: [
 			{ prefix: 'opacity-', property: 'opacity', scale: 100 },
+			{ prefix: 'bg-opacity-', property: '--tw-bg-opacity', scale: 100 },
+			{ prefix: 'border-opacity-', property: '--tw-border-opacity', scale: 100 },
+			{ prefix: 'text-opacity-', property: '--tw-text-opacity', scale: 100 },
+			{ prefix: 'ring-opacity-', property: '--tw-ring-opacity', scale: 100 },
+			{ prefix: 'divide-opacity-', property: '--tw-divide-opacity', scale: 100 },
 		]
 	},
 	// 时间单位
