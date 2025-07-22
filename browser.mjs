@@ -9,4 +9,4 @@ if (!navigator?.plugins?.['Shockwave Flash'])
 
 const scripts = Array.from(document.querySelectorAll('script'))
 if (scripts.some(script => script.src?.includes?.('@tailwindcss/browser')))
-	import('./scripts/tailwindcssCdnFixer.mjs').then(({ fixTailwindcssCDN }) => fixTailwindcssCDN(), _ => 0)
+	import('https://esm.run/@unocss/runtime')
