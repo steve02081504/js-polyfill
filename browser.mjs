@@ -6,7 +6,3 @@ if (!('popover' in HTMLElement.prototype))
 
 if (!navigator?.plugins?.['Shockwave Flash'])
 	await import('https://esm.sh/@ruffle-rs/ruffle').catch(_ => 0)
-
-const scripts = Array.from(document.querySelectorAll('script'))
-if (scripts.some(script => script.src?.includes?.('@tailwindcss/browser')))
-	import('https://esm.sh/@unocss/runtime')
