@@ -5,4 +5,4 @@ if (!('popover' in HTMLElement.prototype))
 	await import('https://esm.sh/@oddbird/popover-polyfill').catch(_ => 0)
 
 if (!navigator?.plugins?.['Shockwave Flash'])
-	await import('https://esm.sh/@ruffle-rs/ruffle').catch(_ => 0)
+	window.addEventListener('load', () => import('https://esm.sh/@ruffle-rs/ruffle').catch(_ => 0))
