@@ -6,8 +6,12 @@ if (!('popover' in HTMLElement.prototype))
 
 if (!navigator?.plugins?.['Shockwave Flash'])
 	window.addEventListener('load', () => {
+		const src = 'https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle/ruffle.js'
+
+		((window.RufflePlayer ??= {}).config ??= {}).publicPath ??= new URL('.', src).href
+
 		document.head.append(Object.assign(document.createElement('script'), {
-			src: 'https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle/ruffle.js',
+			src,
 			onerror: () => 0
 		}))
 	})
