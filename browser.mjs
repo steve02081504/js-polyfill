@@ -8,7 +8,7 @@ if (!navigator?.plugins?.['Shockwave Flash'])
 	window.addEventListener('load', () => {
 		const src = 'https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle/ruffle.js'
 
-		((window.RufflePlayer ??= {}).config ??= {}).publicPath ??= new URL('.', src).href
+		; ((window.RufflePlayer ??= {}).config ??= {}).publicPath ??= new URL('.', src).href
 
 		document.head.append(Object.assign(document.createElement('script'), {
 			src,
